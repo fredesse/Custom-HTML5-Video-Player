@@ -20,9 +20,9 @@ button:focus {
 
 .video-container,
 .p-container {
-	margin: 0 auto;
+	margin: 0 auto;/*
 	max-width: 1024px;
-	max-height: 576px;
+	max-height: 576px;*/
 	position: relative;
 }
 
@@ -33,6 +33,17 @@ button:focus {
 #video {
 	width: 100%;
 	margin: 0 auto;
+}
+
+/* To hide full-screen */
+
+video::-webkit-media-controls {
+  display:none !important;
+}
+
+.seekbar,
+.video-controls {
+	z-index: 2147483647;
 }
 
 /* VIDEO CONTROLS STYLING */
@@ -52,6 +63,7 @@ button:focus {
 	padding-bottom: 1em;
 	background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,.6));
 }
+
 
 .video-container button {
 	height: 25px;
@@ -111,6 +123,10 @@ button:focus {
 
 .seekbar progress {
 	width: 100%;
+}
+
+.seekbar progress:hover {
+	cursor: pointer;
 }
 
 progress[value] {
