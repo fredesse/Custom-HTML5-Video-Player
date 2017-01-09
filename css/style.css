@@ -5,7 +5,7 @@
 }
 
 p {
-	font-family: Lucida Grande, Helvetica, sans-serif;
+	font-family: 'Lucida Grande', Helvetica, sans-serif;
 	color: grey;
 	font-size: .9em;
 	line-height: 1.6em;
@@ -20,9 +20,7 @@ button:focus {
 
 .video-container,
 .p-container {
-	margin: 0 auto;/*
-	max-width: 1024px;
-	max-height: 576px;*/
+	margin: 0 auto;
 	position: relative;
 }
 
@@ -35,7 +33,7 @@ button:focus {
 	margin: 0 auto;
 }
 
-/* To hide full-screen */
+/* To hide default full-screen */
 
 video::-webkit-media-controls {
   display:none !important;
@@ -56,7 +54,7 @@ video::-webkit-media-controls {
 	transition: all 0.7s ease;
 	opacity: 0;
 	position: absolute;
-	bottom: 0;
+	bottom: 4px;
 	padding-left: .7em;
 	padding-right: .7em;
 	padding-top: .5em;
@@ -86,8 +84,12 @@ video::-webkit-media-controls {
 	background-image: url(../icons/unmute.png);
 }
 
-.fullscreen {
+#full-screen {
 	background-image: url(../icons/fullscreen.png);
+}
+
+#exit-full-screen {
+	background-image: url(../icons/minimize.svg);
 }
 
 .mute,
@@ -114,6 +116,10 @@ video::-webkit-media-controls {
 	background-size: 75%;
 }
 
+#exit-full-screen {
+	display: none;
+}
+
 .seekbar {
 	transition: all 0.5s linear;
 	position: absolute;
@@ -132,7 +138,6 @@ video::-webkit-media-controls {
 progress[value] {
 	-webkit-appearance: none;/*
 	-moz-appearance: none;*/
-	appearance: none;
 
 	/*For IE10*/
 	color: #ffa500;

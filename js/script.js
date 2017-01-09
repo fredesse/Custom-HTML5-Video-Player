@@ -4,8 +4,9 @@ window.onload = function() {
 	const playButton = document.getElementById("playpause");
 	const muteButton = document.getElementById("mute");
 	const fullScreenButton = document.getElementById("full-screen");
+	const exitFullScreenButton = document.getElementById("exit-full-screen");
 	const seekBar = document.getElementById("seek-bar");
-	const progressBar = document.getElementById('progress-bar');
+	const progressBar = document.getElementById("progress-bar");
 	const volumeBar = document.getElementById("volume-bar");
 	const currentTimeDisplay = document.getElementById("current-time");
 	const videoDuration = document.getElementById("total-time");
@@ -63,10 +64,33 @@ window.onload = function() {
 	fullScreenButton.addEventListener("click", function() {
 	  if (video.requestFullscreen) {
 	    video.requestFullscreen();
+	    fullScreenButton.style.display = "none";
+	    exitFullScreenButton.style.display = "inline-block";
 	  } else if (video.mozRequestFullScreen) {
 	    video.mozRequestFullScreen();
+	    fullScreenButton.style.display = "none";
+	    exitFullScreenButton.style.display = "inline-block";
 	  } else if (video.webkitRequestFullscreen) {
 	    video.webkitRequestFullscreen();
+	    fullScreenButton.style.display = "none";
+	    exitFullScreenButton.style.display = "inline-block";
+	  }
+	});
+
+	// Event listener for the exit full-screen button 
+	exitFullScreenButton.addEventListener("click", function() {
+	  if (video.exitFullscreen) {
+	    video.exitFullscreen();
+	    exitFullScreenButton.style.display = "none";
+	    fullScreenButton.style.display = "inline-block";
+	  } else if (video.mozCancelFullScreen) {
+	    video.mozCancelFullScreen();
+	    exitFullScreenButton.style.display = "none";
+	    fullScreenButton.style.display = "inline-block";
+	  } else if (video.webkitExitFullscreen) {
+	    video.webkitExitFullscreen();
+	    exitFullScreenButton.style.display = "none";
+	    fullScreenButton.style.display = "inline-block";
 	  }
 	});
 
@@ -103,8 +127,7 @@ window.onload = function() {
 	  let m = minutes < 10 ? "0" + minutes + ":":minutes;
 	  let s = seconds < 10 ? "0" + seconds : seconds;
 	  videoDuration.innerHTML = (" " +  m + s + " ");
-	};	
-
+	};
 
 	/* VOLUME CONRTOLS */
 

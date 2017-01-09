@@ -12,10 +12,11 @@
 			<video id="video">
 				<source src="video/video.mp4" type="video/mp4">
 				<source src="video/video.ogg" type="video/ogg">
+				<track label="Internet inside our house" kind="subtitles" srclang="en" src="video/captions.vtt" default>
 				<p>Your browser doesn't support HTML5 video.</p>
 			</video>
 			<div class="seekbar">
-				<progress id='progress-bar' min='0' max='100' value='0'>0% played</progress>
+				<progress id='progress-bar' max='100' value='0'>0% played</progress>
 			</div>
 			<div class="video-controls">
 				<button type="button" id="playpause" class="play"></button>
@@ -26,6 +27,7 @@
 		    		<button type="button" id="mute" class="unmute"></button>
 		    		<input type="range" id="volume-bar" min="0" max="1" step="0.1" value="1">
 		    		<button type="button" id="full-screen" class="fullscreen"></button>
+		    		<button type="button" id="exit-full-screen" class="fullscreen"></button>
 				</div>
 			</div>	
 		</div>
