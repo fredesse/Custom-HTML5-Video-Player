@@ -50,6 +50,8 @@ window.onload = function() {
 	    //Move volume bar to 1
 	    volumeBar.value = 1;
 
+	    video.volume = 1;
+
 	    // Update the button class
 	    muteButton.className = "unmute";
 	  }
@@ -71,18 +73,20 @@ window.onload = function() {
 
 	/* PLAYBACK */
 
+	// Show the progress bar
 	video.addEventListener('timeupdate', function() {
 	   let percentage = Math.floor((100 / video.duration) *
 	   video.currentTime);
 	   progressBar.value = percentage;
 	});
 
+	// Make progress bar clickable
 	progressBar.addEventListener('click', function(e) {
 	  let percent = e.offsetX * this.max / this.offsetWidth;
 	  video.currentTime = video.duration * (percent / 100);
 	});
 
-		/*To show the time*/ 
+	// Show the time
 	video.addEventListener('timeupdate', function() {
 	  let minutes = Math.floor(video.currentTime / 60);
 	  let seconds = Math.floor(video.currentTime - minutes * 60);
@@ -91,11 +95,8 @@ window.onload = function() {
 	  currentTimeDisplay.innerHTML = ( m + s );
 	});
 
-/*	function updateTime() {
-		currentTimeDisplay.innerHTML = video.currentTime;
-	};*/
 
-		/*To show the duration*/
+	// Show the duration
 	if (video.readyState = 1) {
 	  let minutes = Math.floor(video.duration / 60);
 	  let seconds = Math.floor(video.duration - minutes * 60);
@@ -103,47 +104,6 @@ window.onload = function() {
 	  let s = seconds < 10 ? "0" + seconds : seconds;
 	  videoDuration.innerHTML = (" " +  m + s + " ");
 	};	
-	/*const calcDuration = setInterval(function() {
-		if(video.readyState > 0) {
-			let minutes = parseInt(video.duration / 60, 10);
-			let seconds = video.duration % 60;
-
-			videoDuration.innerHTML = minutes + ":" + seconds;
-
-			clearInterval(calcDuration);
-		}
-	}, 200);*/	
-
-	/*// Event listener for the seek bar
-	seekBar.addEventListener("change", function() {
-	  // Calculate the new time
-	  let time = video.duration * (seekBar.value / 100);
-
-	  // Update the video time
-	  video.currentTime = time;
-	});
-
-	// Update the seek bar as the video plays
-	video.addEventListener("timeupdate", function() {
-	  // Calculate the slider value
-	  let value = (100 / video.duration) * video.currentTime;
-
-	  // Update the slider value
-	  seekBar.value = value;
-	});
-
-	// Pause the video when the slider handle is being dragged
-	seekBar.addEventListener("mousedown", function() {
-	  video.pause();
-	});
-
-	// Play the video when the slider handle is dropped
-	seekBar.addEventListener("mouseup", function() {
-	  video.play();
-	});
-	*/
-
-
 
 
 	/* VOLUME CONRTOLS */
@@ -154,6 +114,125 @@ window.onload = function() {
 	  video.volume = volumeBar.value;
 	});
 
+
+	/* HIGHLIGHTING TRANSCRIPT*/
+
+	video.addEventListener('timeupdate', function() {   
+      let time = video.currentTime;
+
+    if (time > 0.00 && time < 3.90) {
+      let x = document.getElementById("highlight1");
+      x.className += " highlight";
+  	} else { 
+  	  let y = document.getElementById("highlight1");
+      y.className = " ";
+  	}	
+  	if (time >= 3.90 && time < 7.70) {
+      let x = document.getElementById("highlight2");
+      x.className += " highlight";
+    } else {
+      let y = document.getElementById("highlight2");
+      y.className = " ";
+    }
+    if (time >= 7.70 && time < 11.00) {
+      let x = document.getElementById("highlight3");
+      x.className += " highlight";
+    } else {  
+  	  let y = document.getElementById("highlight3");
+      y.className = " ";
+  	}
+	  if (time >= 11.00 && time < 13.70) {
+      let x = document.getElementById("highlight4");
+      x.className += " highlight";
+  	} else {
+  	  let y = document.getElementById("highlight4");
+      y.className = " ";
+    }
+  	if (time >= 13.70 && time < 17.70) {
+      let x = document.getElementById("highlight5");
+      x.className += " highlight";
+  	} else { 
+  	  let y = document.getElementById("highlight5");
+      y.className = " ";
+  	}
+	  if (time >= 17.70 && time < 22.37) {
+      let x = document.getElementById("highlight6");
+      x.className += " highlight";
+  	} else {
+  	  let y = document.getElementById("highlight6");
+      y.className = " ";
+    }
+  	if (time >= 22.37 && time < 26.88) {
+      let x = document.getElementById("highlight7");
+      x.className += " highlight";
+  	} else { 
+  	  let y = document.getElementById("highlight7");
+      y.className = " ";
+  	}
+	  if (time >= 26.88 && time < 30.92) {
+      let x = document.getElementById("highlight8");
+      x.className += " highlight";
+  	} else {
+  	  let y = document.getElementById("highlight8");
+      y.className = " ";
+    }
+  	if (time >= 31.800 && time < 34.530) {
+      let x = document.getElementById("highlight9");
+      x.className += " highlight";
+  	} else { 
+  	  let y = document.getElementById("highlight9");
+      y.className = " ";
+  	}  	  	
+	  if (time >= 34.530 && time < 39.130) {
+      let x = document.getElementById("highlight10");
+      x.className += " highlight";
+  	} else {
+  	  let y = document.getElementById("highlight10");
+      y.className = " ";
+    }
+  	if (time >= 39.130 && time < 41.190) {
+      let x = document.getElementById("highlight11");
+      x.className += " highlight";
+  	} else { 
+  	  let y = document.getElementById("highlight11");
+      y.className = " ";
+  	}
+	  if (time >= 42.050 && time < 46.000) {
+      let x = document.getElementById("highlight12");
+      x.className += " highlight";
+  	} else {
+  	  let y = document.getElementById("highlight12");
+      y.className = " ";
+    }
+  	if (time >= 46.000 && time < 49.070) {
+      let x = document.getElementById("highlight13");
+      x.className += " highlight";
+  	} else { 
+  	  let y = document.getElementById("highlight13");
+      y.className = " ";
+  	}
+	  if (time >= 49.070 && time < 53.560) {
+      let x = document.getElementById("highlight14");
+      x.className += " highlight";
+  	} else {
+  	  let y = document.getElementById("highlight14");
+      y.className = " ";
+    }
+  	if (time >= 53.560 && time < 57.380) {
+      let x = document.getElementById("highlight15");
+      x.className += " highlight";
+  	} else { 
+  	  let y = document.getElementById("highlight15");
+      y.className = " ";
+  	}  	
+  	if (time >= 57.380 && time < 59.85) {
+      let x = document.getElementById("highlight16");
+      x.className += " highlight";
+  	} else { 
+  	  let y = document.getElementById("highlight16");
+      y.className = " ";
+  }
+});
 }
 
 
